@@ -24,3 +24,49 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add smooth scrolling to the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Auto-scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-224px * 5)); /* Adjust based on card width + gap */
+  }
+}
+
+.auto-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.auto-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Container for infinite scroll */
+.scroll-container {
+  display: flex;
+  width: max-content;
+}
+
+/* Duplicate items for seamless loop */
+.scroll-container > * {
+  flex-shrink: 0;
+}
